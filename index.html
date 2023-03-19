@@ -56,6 +56,7 @@
 
         img { max-width: 100%; }
 
+        /** [Header] **/
         .app_header {
             background-image: var(--gradient-red);
             background-size: 200% auto;
@@ -95,18 +96,16 @@
             margin: 0 auto;
         }
 
-        .content {
-            padding: 60px 0;
-        }
-
+        .content { padding: 60px 0; }
         .app_container {
             display: block;
             width: 100%;
             max-width: 90%;
             margin: 10px auto;
         }
+        /**==================================**/
 
-        /*home featured*/
+        /** [Features] **/
         .home_featured {
             position: relative;
             background: rgba(0, 0, 0, 0.5);
@@ -127,10 +126,7 @@
             filter: opacity(70%);
         }
 
-        .home_featured_content {
-            padding: 80px 0 0 0;
-        }
-
+        .home_featured_content { padding: 80px 0 0 0; }
         .home_featured_header {
             width: 660px;
             max-width: 100%;
@@ -144,13 +140,8 @@
             text-shadow: 0 1px 1px rgba(0, 0, 0, 0.8);
         }
 
-        .home_featured_header h1 {
-            font-size: 3em;
-        }
-
-        .home_featured_header h2 {
-            font-size: 2.5em;
-        }   
+        .home_featured_header h1 { font-size: 3em; }
+        .home_featured_header h2 { font-size: 2.5em; }
 
         .home_featured_header p {
             margin: 30px 0 50px 0;
@@ -178,6 +169,7 @@
             --webkit-border-radius: var(--radius-medium);
         }
 
+        .home_featured_btn:hover { background: var(--color-red); }
         .home_featured_app img {
             max-width: 90%;
             -webkit-border-radius: var(--radius-medium);
@@ -187,11 +179,9 @@
             -moz-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
             box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
         }
+        /**==================================**/
 
-        .app_text_center {
-            text-align: center;
-        }
-
+        .app_text_center { text-align: center; }
         .app_title {
             font-size: var(--font-large);
             font-weight: var(--weight-bold);
@@ -236,9 +226,14 @@
             margin: 0px 0px 20px 0px;
         }
 
-        .app_card header p {
-            font-size: var(--font-small);
+        .app_card_img_rounded {
+            border-radius: 50%;
+            width: 160px;
+            height: 160px;
+            margin: 0px 0px 20px 0px;
         }
+
+        .app_card header p { font-size: var(--font-small); }
 
         .app_call_to_action {
             margin: 50px 0px;
@@ -247,9 +242,7 @@
             padding: 40px;
         }
 
-        .app_call_to_action header {
-            text-align: center;
-        }
+        .app_call_to_action header { text-align: center; }
 
         .app_call_to_action header h1 {
             font-weight: var(--weight-black);
@@ -261,9 +254,7 @@
             padding: 40px;
         }
 
-        .app_call_to_action_form input {
-            padding: 10px 20px;
-        }
+        .app_call_to_action_form input { padding: 10px 20px; }
 
         .app_call_to_action_form input,
         .app_call_to_action_form button {
@@ -287,22 +278,135 @@
             color: #FFF;
         }
 
-        .app_call_to_action_form button:hover{
-            background: var(--color-green);
-        }
+        .app_call_to_action_form button:hover{ background: var(--color-green); }
+        /**==================================**/
 
-        /** Footer **/
+        /** [Footer] **/
         .app_footer {
             background: #F7F7F7;
             padding: 50px;
             text-align: center;
+            margin: 20px 0px 0px 0px;
         }
 
-        .app_footer p {
-            font-size: var(--font-medium);
+        .app_footer p { font-size: var(--font-medium); }
+        .app_footer a {
+            text-decoration: none;
+            font-size: var(--font-normal);
+            color: var(--color-red)
+        }
+        /**==================================**/
+
+        /** [Modal] **/
+        .modal {
+            display: none;
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,.5);
+            z-index: 1000;
         }
 
-        /* Tablets */
+        .box_modal_content {
+            background: #fff;
+            padding: 10px;
+            border-radius: 5px;
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+            width: calc(100% - 40px);
+            margin: 0px 20px;
+            margin: auto;
+            height: 90%;
+            overflow-y: auto;
+            display: none;
+        }
+
+        .close_area_modal {
+            flex-basis: 100%;
+            margin-left: auto;
+            text-align: right;
+            margin: 0px 0px 20px 0px;
+        }
+
+        .close_area_modal span {
+            cursor: pointer;
+            color: var(--color-red);
+            font-weight: var(--weight-black);
+            font-size: var(--font-large);
+        }
+
+        .modal_content {
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: row;
+            overflow-y: auto;
+        }
+
+        .modal_accordion {
+            flex-basis: 100%;
+            background: #F7F7F7;
+            margin: 0px 0px 10px 0px;
+            padding: 10px;
+            border-radius: var(--radius-normal);
+            --webkit-border-radius: var(--radius-normal);
+            --moz-border-radius: var(--radius-normal);
+            cursor: pointer;
+        }
+
+        .modal_accordion_panel {
+            padding: 10px;
+            margin: -10px 0px 10px 0px;
+            background: #F7F7F7;
+            overflow: auto;
+            display: flex;
+            width: 100%;
+        }
+
+        .modal_accordion_panel .item_thumb {
+            flex-basis: calc(20% - 5px);
+            margin: 0px 0px 0px 5px;
+        }
+
+        .modal_accordion_panel .item_description {
+            flex-basis: calc(60% - 10px);
+            margin: 20px 5px 0px 5px;
+        }
+
+        .modal_accordion_panel .item_actions {
+            flex-basis: calc(20% - 5px);
+            margin: 20px 5px 0px 0px;
+        }
+
+        .modal_accordion_panel .item_actions .btnAdd,
+        .modal_accordion_panel .item_actions .btnRmv {
+            cursor: pointer;
+            padding: 8px;
+            border: none;
+            color: #FFF;
+            font-weight: var(--weight-black);
+            font-size: var(--font-max);
+            border-radius: var(--radius-normal);
+            --moz-border-radius: var(--radius-normal);
+            --webkit-border-radius: var(--radius-normal);
+        }
+
+        .modal_accordion_panel .item_actions .total  { font-size: 1.4em; }
+        .modal_accordion_panel .item_actions .btnAdd { background: var(--color-green); }
+        .modal_accordion_panel .item_actions .btnRmv { background: var(--color-red);   }
+        .modal_accordion_panel .item_actions button  { margin: 0px 10px; }
+
+        .modal_accordion_panel .item_thumb img {
+            width: 100px;
+            height: 100px;
+        }
+
+        .hidden { display: none; }
+        .flex   { display: flex; }
+        /**==================================**/
+
+        /** [Tablets] **/
         @media(max-width: 52em) {
             .app_call_to_action {
                 padding: 20px 10px;
@@ -332,8 +436,9 @@
                 margin: 10px 10px;
             }
         }
+        /**==================================**/
 
-        /* mobile */
+        /** [Mobile] **/
         @media(max-width:32em) {
             .home_featured_btn {
                 margin: 20px 10px 200px 10px;
@@ -353,10 +458,35 @@
                 flex-basis: calc(100%);
                 margin: 10px auto;
             }
+
+            .app_footer p {
+                font-size: var(--font-normal);
+            }
         }
+        /**==================================**/
     </style>
 </head>
 <body>
+    <!-- Modal -->
+    <div class="modal" data-modal="menu">
+        <div class="box_modal_content" style="display: block;">
+            <div class="close_area_modal">
+                <span class="btn_app_close_modal"><strong>X</strong></span>
+            </div>
+    
+            <div class="modal_content">
+                <div class="modal_accordion" data-target="#accordion-drinks"><div>Bebidas</div></div>
+                <div class="modal_accordion_panel hidden" data-category="1" id="accordion-drinks"></div>
+    
+                <div class="modal_accordion" data-target="#accordion-lanches"><div>Sanduíches</div> </div>
+                <div class="modal_accordion_panel hidden" data-category="2" id="accordion-lanches"></div>
+
+                <div class="modal_accordion" data-target="#accordion-desserts"><div>Sobremesas</div></div>
+                <div class="modal_accordion_panel hidden" data-category="3" id="accordion-desserts"></div>
+            </div>
+        </div>
+    </div>
+
     <!-- Header -->
     <header class="app_header">
         <div class="app_header_img">
@@ -388,8 +518,7 @@
             <div class="app_flex">
                 <article class="app_flex_item_3 app_card">
                     <header>
-                        <!-- <img src="images/thumb-bebidas.jpg" class="app_card_img" alt="Bebidas" title="Bebidas"/> -->
-                        <img src="" class="app_card_img" alt="Bebidas" title="Bebidas"/>
+                        <img src="images/thumb-bebidas.jpg" class="app_card_img" alt="Bebidas" title="Bebidas"/>
                         <h2 class="app_subtitle">Bebidas</h2>
                         <p class="app_paragraph">Escolha a sua bebida favorita, dispomos de: refrigerante, chá, suco, detox e limonada entre outros.</p>
                     </header>
@@ -397,8 +526,7 @@
 
                 <article class="app_flex_item_3 app_card">
                     <header>
-                        <!-- <img src="images/thumb-lanches.jpg" class="app_card_img" alt="Sanduíches" title="Sanduíches"/> -->
-                        <img src="" class="app_card_img" alt="Bebidas" title="Bebidas"/>
+                        <img src="images/thumb-lanches.jpg" class="app_card_img" alt="Sanduíches" title="Sanduíches"/>
                         <h2 class="app_subtitle">Sanduíches</h2>
                         <p class="app_paragraph">Escolha a seu sanduíches favorito, dispomos de deliciósos: 
                                                  hambúrgueres, cachorro-quente, sanduíches, mistos entre outros.</p>
@@ -407,8 +535,7 @@
 
                 <article class="app_flex_item_3 app_card">
                     <header>
-                        <!-- <img src="images/thumb-sobremesa.jpg" class="app_card_img" alt="Sobremesas" title="Sobremesas"/> -->
-                        <img src="" class="app_card_img" alt="Bebidas" title="Bebidas"/>
+                        <img src="images/thumb-sobremesa.jpg" class="app_card_img" alt="Sobremesas" title="Sobremesas"/>
                         <h2 class="app_subtitle">Sobremesas</h2>
                         <p class="app_paragraph">Escolha a sua Sobremesas favorita, dispomos de: bolos, tortas, mousse entre outros.</p>
                     </header>
@@ -431,39 +558,35 @@
             </div>
         </article>
 
-        <!-- Section Card Content -->
+        <!-- Depoiments -->
         <section class="container">
             <header class="app_text_center">
-                <h1 class="app_title">Confira os principais alimentos do nosso cardápio</h1>
-                <p class="app_paragraph">São três categorias que abragem diversos tipos de alimentos, confira abaixo:</p>
+                <h1 class="app_title">Confira abaixo o depoimento de alguns de nossos clientes</h1>
+                <p class="app_paragraph">Esse são nossos clientes mais fies e recorrentemente realizam pedido em nossa pizzaria.</p>
             </header>
             
             <div class="app_flex">
                 <article class="app_flex_item_3 app_card">
                     <header>
-                        <!-- <img src="images/thumb-bebidas.jpg" class="app_card_img" alt="Bebidas" title="Bebidas"/> -->
-                        <img src="" class="app_card_img" alt="Bebidas" title="Bebidas"/>
-                        <h2 class="app_subtitle">Bebidas</h2>
-                        <p class="app_paragraph">Escolha a sua bebida favorita, dispomos de: refrigerante, chá, suco, detox e limonada entre outros.</p>
+                        <img src="images/thumb-depoiment1.jpg" class="app_card_img_rounded" alt="Tiago Barbosa" title="Tiago Barbosa"/>
+                        <h2 class="app_subtitle">Tiago Barbosa</h2>
+                        <p class="app_paragraph">Na Pizzaria online, eu encontro sempre um lanche super delicioso e saboroso.</p>
                     </header>
                 </article>
 
                 <article class="app_flex_item_3 app_card">
                     <header>
-                        <!-- <img src="images/thumb-lanches.jpg" class="app_card_img" alt="Sanduíches" title="Sanduíches"/> -->
-                        <img src="" class="app_card_img" alt="Bebidas" title="Bebidas"/>
-                        <h2 class="app_subtitle">Sanduíches</h2>
-                        <p class="app_paragraph">Escolha a seu sanduíches favorito, dispomos de deliciósos: 
-                                                 hambúrgueres, cachorro-quente, sanduíches, mistos entre outros.</p>
+                        <img src="images/thumb-depoiment2.jpg" class="app_card_img_rounded" alt="Fábio Martins" title="Fábio Martins"/>
+                        <h2 class="app_subtitle">Fábio Martins</h2>
+                        <p class="app_paragraph">Na Pizzaria online, eu encontro sempre um lanche super delicioso e saboroso.</p>
                     </header>
                 </article>
 
                 <article class="app_flex_item_3 app_card">
                     <header>
-                        <!-- <img src="images/thumb-sobremesa.jpg" class="app_card_img" alt="Sobremesas" title="Sobremesas"/> -->
-                        <img src="" class="app_card_img" alt="Bebidas" title="Bebidas"/>
-                        <h2 class="app_subtitle">Sobremesas</h2>
-                        <p class="app_paragraph">Escolha a sua Sobremesas favorita, dispomos de: bolos, tortas, mousse entre outros.</p>
+                        <img src="images/thumb-depoiment3.jpg" class="app_card_img_rounded" alt="Bruna Santos" title="Bruna Santos"/>
+                        <h2 class="app_subtitle">Bruna Santos</h2>
+                        <p class="app_paragraph">Na Pizzaria online, eu encontro sempre um lanche super delicioso e saboroso.</p>
                     </header>
                 </article>
             </div>
@@ -472,10 +595,140 @@
 
     <footer class="app_footer">
         <p>&copy; Todos os direiros reservados</p>
-        <p>.💻 <a href=""></a> </p>
+        <a href="https://github.com/edem-fernando/web-pedidos" target="_blank">💻 Link do projeto.</a>
     </footer>
 
     <script>
+        // elements
+        const btnOrder = document.querySelector('.home_featured_btn');
+        const btnClose = document.querySelector('.btn_app_close_modal');
+        const divModal = document.querySelector('.modal');
+        const divAccordions = document.querySelectorAll('.modal_accordion');
+
+        var itens = [
+            {
+                id: 1,
+                category: 1,
+                name: 'Refri Coca-Cola 1.5L',
+                image: 'images/thumb-bebidas.jpg',
+                qtd: 0,
+                price: 10.00,
+                description: 'Refrigerante Coca-Cola 1.5L'
+            }, {
+                id: 2,
+                category: 2,
+                name: 'Hamburger da casa',
+                image: 'images/thumb-lanches.jpg',
+                qtd: 0,
+                price: 14.00,
+                description: 'Pão caseiro, blend 500g, ovo frito, queijo e presunto'
+            }, {
+                id: 3,
+                category: 3,
+                name: 'Mousse',
+                image: 'images/thumb-sobremesa.jpg',
+                qtd: 0,
+                price: 22.99,
+                description: 'Mousse de baunilha com cobertura de morango'
+            },
+        ];
+
+        // functions
+        const showModal  = () => divModal.setAttribute('style', 'display: flex');
+        const closeModal = () => divModal.setAttribute('style', 'display: none');
+        const showMenu   = () => showModal();
+
+        const addItem = (targetId) => {
+            var span = document.getElementById(targetId);
+            console.log(span.innerText);
+
+            var quant = Number.parseInt(span.innerText);
+            span.innerText = quant++;
+        };
+
+        const rmvItem = (targetId) => {
+            var span = document.getElementById(targetId);
+            console.log(span.innerText);
+            
+            var quant = Number.parseInt(span.innerText);
+            if (quant == 0) return;
+
+            span.innerText = quant--;
+        };
+
+        const fillMenu = () => {
+            itens.forEach((item) => {
+                var divTarget = document.querySelector(`div[data-category="${item.category}"]`);
+                var divThumb  = document.createElement('div');
+                var divDescr  = document.createElement('div');
+                var divItens  = document.createElement('div');
+
+                divThumb.setAttribute('class', 'item_thumb');
+                divItens.setAttribute('class', 'item_actions');
+                divDescr.setAttribute('class', 'item_description')
+                
+                var elTxt = document.createElement('span');
+                var elSpn = document.createElement('span');
+                var elImg = document.createElement('img');
+                var elBRW = document.createElement('br');
+
+                elImg.setAttribute('src', item.image);
+                elImg.setAttribute('alt', item.name);
+                elImg.setAttribute('title', item.name);
+                elTxt.innerText = item.name;
+                elSpn.innerText = `Descrição: ${item.description}`;
+
+                var btnAdd = document.createElement('button');
+                var btnRmv = document.createElement('button');
+                var btnQtd = document.createElement('span');
+
+                btnAdd.setAttribute('class', 'btnAdd');
+                btnRmv.setAttribute('class', 'btnRmv');
+                btnQtd.setAttribute('class', 'total');
+                btnQtd.id = `span-total-${item.id}`;
+
+                btnAdd.innerText = '+';
+                btnRmv.innerText = '-';
+                btnQtd.innerText = '0';
+
+                divThumb.appendChild(elImg);
+                divDescr.appendChild(elTxt);
+                divDescr.appendChild(elBRW);
+                divDescr.appendChild(elSpn);
+
+                divItens.appendChild(btnAdd);
+                divItens.appendChild(btnQtd);
+                divItens.appendChild(btnRmv);
+
+                divTarget.appendChild(divThumb);
+                divTarget.appendChild(divDescr);
+                divTarget.appendChild(divItens);
+
+                btnAdd.addEventListener('click', () => addItem(btnQtd.id));
+                btnRmv.addEventListener('click', () => rmvItem(btnQtd.id));
+            });
+        };
+
+        // events
+        btnOrder.addEventListener('click', (e) => showMenu());
+        btnClose.addEventListener('click', (e) => closeModal());
+        
+        divAccordions.forEach((accordion) => {
+            accordion.addEventListener('click', () => {
+                let target = document.querySelector(accordion.getAttribute('data-target'));
+                let hasClass = target.classList.contains('hidden');
+
+                if (hasClass) {
+                    target.classList.add('flex');
+                    target.classList.remove('hidden');
+                } else {
+                    target.classList.add('hidden');
+                    target.classList.remove('flex');
+                }
+            });
+        });
+
+        fillMenu();
     </script>
 </body>
 </html>
