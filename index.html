@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pizzaria Online</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500&display=swap" rel="stylesheet">
+
+    <link rel="shortcut icon" href="images/icon.png" type="image/x-icon">
+    <style>
+        *{
+            font-family: 'Poppins', sans-serif;
+
+            margin: 0;
+            padding: 0;
+
+            box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+        }
+
+        :root {
+            --font-min: 0.8em;
+            --font-small: 0.875em;
+            --font-normal: 1em;
+            --font-medium: 1.2em;
+            --font-large: 1.4em;
+            --font-max: 2em;
+
+            --weight-light: 100;
+            --weight-normal: 200;
+            --weight-strong: 300;
+            --weight-bold: 400;
+            --weight-black: 500;
+
+            --radius-normal: 5px;
+            --radius-medium: 10px;
+            --radius-large: 20px;
+            --radius-round: 50%;
+
+            --index-back: -1;
+            --index-fold: 2;
+            --index-menu: 3;
+            --index-modal: 4;
+
+            --color-red: #d43e3e;
+            --color-green: #36BA9B;
+
+            --gradient-red: linear-gradient(to right, #8b2e5d 0%, #C53364 50%, #8d1a1a 100%);
+            --gradient-green: linear-gradient(to right, var(--color-green) 0%, #369fa5 50%, #22aa66 100%);
+        }
+
+        img { max-width: 100%; }
+
+        .app_header {
+            background-image: var(--gradient-red);
+            background-size: 200% auto;
+            transition-duration: 0.5s;
+
+            color: #FFF;
+            padding: 10px;
+
+            display: flex;
+            flex-wrap: nowrap;
+            width: 100%;
+        }
+
+        .app_header .app_header_img img {
+            width: 40px;
+            height: 40px;
+        }
+
+        .app_header_title {
+            flex-basis: calc(75% - 10px);
+            margin: 0px 0px 0px 10px;
+            color: #FFF;
+            font-size: var(--font-normal);
+        }
+
+        .app_header_title h1 {
+            margin: 5px 0px 0px 0px;
+            font-weight: 400;
+            font-size: 1.3em;
+        }
+
+        .content,
+        .container {
+            display: block;
+            width: 1200px;
+            max-width: 90%;
+            margin: 0 auto;
+        }
+
+        .content {
+            padding: 60px 0;
+        }
+
+        .app_container {
+            display: block;
+            width: 100%;
+            max-width: 90%;
+            margin: 10px auto;
+        }
+
+        /*home featured*/
+        .home_featured {
+            position: relative;
+            background: rgba(0, 0, 0, 0.5);
+            color: #ffffff;
+        }
+
+        .home_featured:after {
+            content: "";
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            position: absolute;
+            z-index: -1000;
+            background: url("images/thumb4.jpeg") top center no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+            filter: opacity(70%);
+        }
+
+        .home_featured_content {
+            padding: 80px 0 0 0;
+        }
+
+        .home_featured_header {
+            width: 660px;
+            max-width: 100%;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .home_featured_header h1,
+        .home_featured_header h2 {
+            font-weight: 500;
+            text-shadow: 0 1px 1px rgba(0, 0, 0, 0.8);
+        }
+
+        .home_featured_header h1 {
+            font-size: 3em;
+        }
+
+        .home_featured_header h2 {
+            font-size: 2.5em;
+        }   
+
+        .home_featured_header p {
+            margin: 30px 0 50px 0;
+            font-weight: var(--weight-strong);
+            font-size: var(--font-medium);
+        }
+
+        .home_featured_header .features {
+            font-size: var(--font-small);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .home_featured_btn {
+            margin: 20px 0px 200px 0px;
+            cursor: pointer;
+            display: inline-block;
+            padding: 30px;
+            text-transform: uppercase;
+            font-weight: var(--weight-black);
+            text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5);
+            background: var(--gradient-red);
+            border-radius: var(--radius-medium);
+            --moz-border-radius: var(--radius-medium);
+            --webkit-border-radius: var(--radius-medium);
+        }
+
+        .home_featured_app img {
+            max-width: 90%;
+            -webkit-border-radius: var(--radius-medium);
+            -moz-border-radius: var(--radius-medium);
+            border-radius: var(--radius-medium);
+            -webkit-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+            -moz-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+            box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+        }
+
+        .app_text_center {
+            text-align: center;
+        }
+
+        .app_title {
+            font-size: var(--font-large);
+            font-weight: var(--weight-bold);
+        }
+
+        .app_subtitle {
+            font-size: var(--font-large);
+            font-weight: var(--weight-bold);
+        }
+
+        .app_paragraph {
+            margin: 10px 0px 20px 0px;
+            font-size: var(--font-normal);
+        }
+
+        .app_flex {
+            display: flex;
+            flex-wrap: nowrap;
+        }
+
+        .app_flex_item_3 {
+            flex-basis: calc(33.33% - 20px);
+            margin: 10px 10px;
+        }
+
+        .app_card {
+            margin-top: 20px;
+            margin-bottom: 20px;
+            padding: 20px;
+
+            border: 1px solid #ccc;
+            border-top: 2px solid var(--color-red);
+            border-radius: var(--radius-medium);
+            --moz-border-radius: var(--radius-medium);
+            --webkit-border-radius: var(--radius-medium);
+            text-align: center;
+        }
+
+        .app_card_img {
+            width: 100%;
+            height: 20%;
+            margin: 0px 0px 20px 0px;
+        }
+
+        .app_card header p {
+            font-size: var(--font-small);
+        }
+
+        .app_call_to_action {
+            margin: 50px 0px;
+            background: var(--gradient-red);
+            color: #FFF;
+            padding: 40px;
+        }
+
+        .app_call_to_action header {
+            text-align: center;
+        }
+
+        .app_call_to_action header h1 {
+            font-weight: var(--weight-black);
+            font-size: 2.4em;
+        }
+
+        .app_call_to_action_form {
+            margin: 20px auto;
+            padding: 40px;
+        }
+
+        .app_call_to_action_form input {
+            padding: 10px 20px;
+        }
+
+        .app_call_to_action_form input,
+        .app_call_to_action_form button {
+            border: none;
+            border-radius: var(--radius-normal);
+            --moz-border-radius: var(--radius-normal);
+            --webkit-border-radius: var(--radius-normal);
+            outline: none;
+            width: calc(33.33% - 20px);
+            margin: 0px 10px;
+        }
+        
+        .app_call_to_action_form button {
+            width: 20%;
+            padding: 10px;
+            margin: 0px 10px;
+            cursor: pointer;
+            font-weight: var(--weight-black);
+            text-transform: uppercase;
+            background: var(--gradient-green);
+            color: #FFF;
+        }
+
+        .app_call_to_action_form button:hover{
+            background: var(--color-green);
+        }
+
+        /** Footer **/
+        .app_footer {
+            background: #F7F7F7;
+            padding: 50px;
+            text-align: center;
+        }
+
+        .app_footer p {
+            font-size: var(--font-medium);
+        }
+
+        /* Tablets */
+        @media(max-width: 52em) {
+            .app_call_to_action {
+                padding: 20px 10px;
+            }
+
+            .app_call_to_action header h1 {
+                font-weight: var(--weight-black);
+                font-size: 1.4em;
+                margin: 10px 0px;
+            }
+
+            .app_call_to_action header .app_call_to_action_nomobile {
+                display: none;
+            }
+
+            .app_call_to_action_form {
+                padding: 0px;
+                display: flex;
+                margin-left: auto;
+                margin-right: auto;
+                flex-wrap: wrap;
+            }
+
+            .app_call_to_action_form input,
+            .app_call_to_action_form button {
+                flex-basis: calc(33.33% - 20px);
+                margin: 10px 10px;
+            }
+        }
+
+        /* mobile */
+        @media(max-width:32em) {
+            .home_featured_btn {
+                margin: 20px 10px 200px 10px;
+            }
+
+            .app_flex {
+                flex-wrap: wrap;
+            }
+
+            .app_flex_item_3 {
+                flex-basis: calc(100% - 10px);
+                margin: 10px 5px;
+            }
+
+            .app_call_to_action_form input,
+            .app_call_to_action_form button {
+                flex-basis: calc(100%);
+                margin: 10px auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="app_header">
+        <div class="app_header_img">
+            <img src="images/icon.png" alt="Pizzaria Online" title="Pizzaria Online"/>
+        </div>
+
+        <div class="app_header_title"><h1>Faça o seu pedido</h1></div>
+    </header>
+
+    <!-- Main -->
+    <main class="app_main">
+        <article class="home_featured">
+            <div class="home_featured_content container content">
+                <header class="home_featured_header">
+                    <h1>Bateu aquela fome?</h1>
+                    <h2>Peça já a sua pizza!</h2>
+                    <p><span class="home_featured_btn">Realizar o meu pedido</span></p>
+                </header>
+            </div>
+        </article>
+
+        <!-- Section Card Content -->
+        <section class="container">
+            <header class="app_text_center">
+                <h1 class="app_title">Confira os principais alimentos do nosso cardápio</h1>
+                <p class="app_paragraph">São três categorias que abragem diversos tipos de alimentos, confira abaixo:</p>
+            </header>
+            
+            <div class="app_flex">
+                <article class="app_flex_item_3 app_card">
+                    <header>
+                        <!-- <img src="images/thumb-bebidas.jpg" class="app_card_img" alt="Bebidas" title="Bebidas"/> -->
+                        <img src="" class="app_card_img" alt="Bebidas" title="Bebidas"/>
+                        <h2 class="app_subtitle">Bebidas</h2>
+                        <p class="app_paragraph">Escolha a sua bebida favorita, dispomos de: refrigerante, chá, suco, detox e limonada entre outros.</p>
+                    </header>
+                </article>
+
+                <article class="app_flex_item_3 app_card">
+                    <header>
+                        <!-- <img src="images/thumb-lanches.jpg" class="app_card_img" alt="Sanduíches" title="Sanduíches"/> -->
+                        <img src="" class="app_card_img" alt="Bebidas" title="Bebidas"/>
+                        <h2 class="app_subtitle">Sanduíches</h2>
+                        <p class="app_paragraph">Escolha a seu sanduíches favorito, dispomos de deliciósos: 
+                                                 hambúrgueres, cachorro-quente, sanduíches, mistos entre outros.</p>
+                    </header>
+                </article>
+
+                <article class="app_flex_item_3 app_card">
+                    <header>
+                        <!-- <img src="images/thumb-sobremesa.jpg" class="app_card_img" alt="Sobremesas" title="Sobremesas"/> -->
+                        <img src="" class="app_card_img" alt="Bebidas" title="Bebidas"/>
+                        <h2 class="app_subtitle">Sobremesas</h2>
+                        <p class="app_paragraph">Escolha a sua Sobremesas favorita, dispomos de: bolos, tortas, mousse entre outros.</p>
+                    </header>
+                </article>
+            </div>
+        </section>
+
+        <!-- Call to Action -->
+        <article class="app_call_to_action">
+            <header>
+                <h1>Cupom de desconto!!!</h1>
+                <p class="app_call_to_action_nomobile">Está com vontande de experimentar um de nossos deliciosos lanches, mas no momento está duro? Calma nós podemos de ajudar.</p>
+                <p>Preencha o formulário abaixo que nós te enviaremos um cupom de desconto.</p>
+            </header>
+
+            <div class="app_call_to_action_form">
+                <input type="text" id="inputName" name="name" placeholder="Informe o seu nome completo" />
+                <input type="email" id="inputEmail" name="email" placeholder="Informe o seu e-mail"/>
+                <button>Solicitar Cupom</button>
+            </div>
+        </article>
+
+        <!-- Section Card Content -->
+        <section class="container">
+            <header class="app_text_center">
+                <h1 class="app_title">Confira os principais alimentos do nosso cardápio</h1>
+                <p class="app_paragraph">São três categorias que abragem diversos tipos de alimentos, confira abaixo:</p>
+            </header>
+            
+            <div class="app_flex">
+                <article class="app_flex_item_3 app_card">
+                    <header>
+                        <!-- <img src="images/thumb-bebidas.jpg" class="app_card_img" alt="Bebidas" title="Bebidas"/> -->
+                        <img src="" class="app_card_img" alt="Bebidas" title="Bebidas"/>
+                        <h2 class="app_subtitle">Bebidas</h2>
+                        <p class="app_paragraph">Escolha a sua bebida favorita, dispomos de: refrigerante, chá, suco, detox e limonada entre outros.</p>
+                    </header>
+                </article>
+
+                <article class="app_flex_item_3 app_card">
+                    <header>
+                        <!-- <img src="images/thumb-lanches.jpg" class="app_card_img" alt="Sanduíches" title="Sanduíches"/> -->
+                        <img src="" class="app_card_img" alt="Bebidas" title="Bebidas"/>
+                        <h2 class="app_subtitle">Sanduíches</h2>
+                        <p class="app_paragraph">Escolha a seu sanduíches favorito, dispomos de deliciósos: 
+                                                 hambúrgueres, cachorro-quente, sanduíches, mistos entre outros.</p>
+                    </header>
+                </article>
+
+                <article class="app_flex_item_3 app_card">
+                    <header>
+                        <!-- <img src="images/thumb-sobremesa.jpg" class="app_card_img" alt="Sobremesas" title="Sobremesas"/> -->
+                        <img src="" class="app_card_img" alt="Bebidas" title="Bebidas"/>
+                        <h2 class="app_subtitle">Sobremesas</h2>
+                        <p class="app_paragraph">Escolha a sua Sobremesas favorita, dispomos de: bolos, tortas, mousse entre outros.</p>
+                    </header>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer class="app_footer">
+        <p>&copy; Todos os direiros reservados</p>
+        <p>.💻 <a href=""></a> </p>
+    </footer>
+
+    <script>
+    </script>
+</body>
+</html>
